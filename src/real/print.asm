@@ -1,6 +1,3 @@
-jmp print_asm_eof
-
-
 ; print a single character
 print_char:
 	mov ah , 0x0e
@@ -21,6 +18,10 @@ print_string:
 	
 	print_string_return:
 	ret
+	
+print_error_string:
+	call print_string
+	jmp $
 
 ; print an integer as a hex
 print_hex:
@@ -77,5 +78,3 @@ print_hex:
 
 ; globals
 print_hex_out: db '0x0000',0
-	
-print_asm_eof:
